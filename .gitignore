@@ -1,0 +1,5 @@
+#Ignore Virtual Environment
+/scrapy
+
+#Ignore metadata files
+.DS_Store
