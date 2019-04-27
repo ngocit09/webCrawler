@@ -9,6 +9,12 @@ import scrapy
 
 
 class TikiItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    item_id = scrapy.Field()
+    title = scrapy.Field()
+    price = scrapy.Field()
+    link = scrapy.Field()
+    images = scrapy.Field()
+    discount = scrapy.Field()
+    display_price = scrapy.Field()
+    rating = scrapy.Field()
+    comment = scrapy.Field()

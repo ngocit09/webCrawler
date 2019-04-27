@@ -1,5 +1,6 @@
 #Ignore Virtual Environment
 /scrapy
+/.vscode
 
 #Ignore metadata files
 .DS_Store
