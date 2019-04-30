@@ -64,9 +64,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'tiki.pipelines.TikiPipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'tiki.pipelines.TikiPipeline': 300,
+    'tiki.pipelines.LinkPipeline': 400,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -89,5 +90,8 @@ ROBOTSTXT_OBEY = True
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.131 Safari/537.36"
-FEED_FORMAT = "json"
-FEED_URI = "tiki.json"
+# FEED_FORMAT = "json"
+FEED_URI = "link.json"
+
+MONGO_URI = "localhost:27017"
+MONGO_DATABASE = "tiki"

@@ -1,16 +1,17 @@
 import re
 from pprint import pprint
 
-import scrapy
+from scrapy.linkextractors import LinkExtractor
+from scrapy.spiders import CrawlSpider, Rule
 
 from tiki.items import TikiItem
 
-filename = 'tiki_links.txt'
 
-
-class TikiSpider(scrapy.Spider):
+class TikiSpider(CrawlSpider):
     name = 'tiki_spider'
-    start_urls = ['https://tiki.vn/thuong-hieu/acecook.html']
+    allowed_domains = ['tiki.vn']
+    logger = ''
+    rules = (Rule(LinkExtractor(), callback='parse_page'),)
 
     def get_money(self, string):
         if not string:
@@ -27,7 +28,7 @@ class TikiSpider(scrapy.Spider):
 
         return res[0]
 
-    def parse(self, response):
+    def parse_page(self, response):
         search_results = response.css('div.product-box-list > div')
 
         for item in search_results:
